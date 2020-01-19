@@ -1,12 +1,14 @@
 from django.db import models
+from first.utils import uuid_upload_to
 
-class post(models.Model):
-    author_name=models.CharField(max_length=20)
-    title=models.CharField(max_length=100)
-    content=models.TextField()
-    created_at=models.DateTimeField(auto_now_add=True)
-    updated_at=models.DateTimeField(auto_now=True)
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    photo=models.ImageField(blank=True,upload_to=uuid_upload_to)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
 
 class Comment(models.Model):
-    post=models.ForeignKey(post, on_delete=models.CASCADE)
-    message=models.TextField()
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    message = models.TextField()

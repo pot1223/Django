@@ -5,4 +5,4 @@ class FourDigitYearConverter:
         return int(value)
 
     def to_url(self, value):
-        return '%04d' % value
+        return '%4d' % value
