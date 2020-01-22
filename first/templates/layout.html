@@ -1,7 +1,7 @@
-{%load static %}
+{%load static fresh_static%}
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>{% block title%}escape room{% endblock %}</title>
@@ -9,7 +9,7 @@
              body{background-color: lightyellow;}
         </style>
         {%block extra_head %}
-            <link rel="stylesheet" href="{% static "main.css" %}" />
+            <link rel="stylesheet" href="{% fresh_static 'main.css'%}" />
         {% endblock %}
 
 
@@ -23,7 +23,7 @@
         <hr/>
         &copy;2020. first.
         {% block extra_body %}
-                <script src="{% static "main.js" %}"></script>
+                <script src="{% static 'main.js' %}"></script>
         {% endblock %}
     </body>
 </html>
